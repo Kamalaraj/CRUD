@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 // import { revalidatePath } from "next/cache";
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 
 interface User {
@@ -38,13 +38,14 @@ export default function Home() {
     };
     fetchUsers();
   }, [userInfo]);
-
-  const handleChange = (event: any) => {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  const handleChange = (event:React.ChangeEvent<any>) => {
     const { name, value } = event.target;
     setUserInfo({ ...userInfo, [name]: value });
   };
+  /* eslint-enable @typescript-eslint/no-explicit-any */
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {

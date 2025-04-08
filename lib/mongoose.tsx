@@ -1,9 +1,11 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
-const MONGODB_URI: string = "mongodb://127.0.0.1:27017/crud";
+const MONGODB_URI: string = process.env.MONGODB_URI || "";
 const connectToDatabase = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI || MONGODB_URI);
+    await mongoose.connect(MONGODB_URI);
     console.log("Connected to MongoDB");
   } catch (err) {
     console.log(err);

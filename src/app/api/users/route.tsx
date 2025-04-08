@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+//import mongoose from "mongoose";
 import User from "../../../../models/user";
 import connectionToDatabase from "../../../../lib/mongoose";
 import { NextResponse } from "next/server";
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
   }
 }
 
-export async function GET(req: Request) {
+export async function GET() {
   try {
     await connectionToDatabase();
     const users = await User.find();
@@ -58,7 +58,7 @@ export async function DELETE (req:Request){
     await connectionToDatabase();
     //console.log(req.json);
     
-    const {_id,FirstName,LastName,Age,Gender,Email} = await req.json();
+    const {_id} = await req.json();
     console.log(_id);
     
     const deleteUser = await User.findByIdAndDelete(_id);
