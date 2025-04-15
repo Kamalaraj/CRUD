@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 // import { revalidatePath } from "next/cache";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 
 interface User {
@@ -39,7 +39,7 @@ export default function Home() {
     fetchUsers();
   }, [userInfo]);
   /* eslint-disable @typescript-eslint/no-explicit-any */
-  const handleChange = (event:React.ChangeEvent<any>) => {
+  const handleChange = (event: React.ChangeEvent<any>) => {
     const { name, value } = event.target;
     setUserInfo({ ...userInfo, [name]: value });
   };
@@ -99,10 +99,12 @@ export default function Home() {
     }
   };
 
-  return (  
+  return (
     <div className="max-w-6xl mx-auto p-4 sm:p-8">
       <div className="max-w-xl mx-auto">
-        <h1 className="text-2xl text-center font-bold mb-4">Create User</h1>
+        <h1 className="text-2xl text-center font-bold mb-4">
+          Create User New Change
+        </h1>
         <form
           className="space-y-4 shadow-xl rounded-2xl px-6 sm:px-8 pt-6 pb-8 bg-blue-100"
           onSubmit={handleSubmit}
